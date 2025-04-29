@@ -1,129 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal Portfolio of Ankit Raj, showcasing projects, skills, and achievements.">
-    <meta name="author" content="Ankit Raj">
-    <meta name="keywords" content="portfolio, ankit raj, programmer, developer, web developer, AI assistant, crypto, weather, chatbot">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Google Page | Ankit Raj">
-    <meta property="og:description" content="Welcome to my personal homepage, featuring weather updates, AI assistant, and much more!">
-    <meta property="og:image" content="images/og-image.jpg">
-    <meta property="og:url" content="https://ankitrajmaurya.github.io/">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Google Page | Ankit Raj">
-    <meta name="twitter:description" content="Welcome to my personal homepage, featuring weather updates, AI assistant, and much more!">
-    <meta name="twitter:image" content="images/og-image.jpg">
-    <title>Google Page | Ankit Raj</title>
+  <!-- SEO Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Custom Google Page with AI Assistant, Crypto & Weather | By Ankit Raj" />
+  <meta name="author" content="Ankit Raj" />
+  <title>Google Page | Ankit Raj</title>
 
-    <!-- External CSS Link -->
-    <link rel="stylesheet" href="css/style.css"> <!-- Link to the CSS file -->
+  <!-- Favicon -->
+  <link rel="icon" href="img/logo.png" type="image/png" />
 
-    <!-- External JS Link (For Scripts) -->
-    <script src="js/main.js" defer></script>
-    <script src="js/chatbot.js" defer></script>
-    <script src="js/crypto.js" defer></script>
-    <script src="js/weather.js" defer></script>
-    <script src="js/settings.js" defer></script>
-
-    <!-- Link to JSON File (Settings) -->
-    <script src="json/settings.json" type="application/json"></script>
-
-    <!-- Favicon -->
-    <link rel="icon" href="images/logo.png" type="image/x-icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- SEO & Accessibility: Icons, colors, fonts -->
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
-    </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
-    <!-- HEADER SECTION -->
-    <header>
-        <div class="logo-circle">
-            <img src="images/logo.png" alt="Ankit Raj Logo">
-        </div>
-        <h1 class="title">Welcome to My Personal Homepage</h1>
-        <p class="greeting-text" id="greeting">Good Morning, Ankit Raj</p>
-    </header>
 
-    <!-- NAVIGATION BAR -->
-    <nav>
-        <ul>
-            <li><a href="#search-section">Search</a></li>
-            <li><a href="#weather-widget">Weather</a></li>
-            <li><a href="#crypto-widget">Crypto</a></li>
-            <li><a href="#assistant-section">AI Assistant</a></li>
-            <li><a href="#footer">Footer</a></li>
-        </ul>
-    </nav>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo" />
+    </div>
+    <h1>Google Page | Ankit Raj</h1>
+    <p class="greeting" id="greeting">Good Day, Ankit!</p>
+  </header>
 
-    <!-- SEARCH SECTION -->
-    <section class="search-section" id="search-section">
-        <input type="text" id="search-box" placeholder="Search...">
-        <button id="search-button">Search</button>
-    </section>
+  <!-- Google Search Section -->
+  <section class="search-bar">
+    <input type="text" id="search" placeholder="Search Google..." />
+    <button onclick="searchGoogle()">Search</button>
+  </section>
 
-    <!-- WEATHER WIDGET -->
-    <section id="weather-widget" class="info-widget">
-        <h2>Weather Update</h2>
-        <p id="weather-info">Fetching weather data...</p>
-    </section>
+  <!-- AI Assistant Section -->
+  <section id="chatbot">
+    <h2>AI Assistant</h2>
+    <div class="chat-container" id="chat-container"></div>
+    <input type="text" id="user-input" placeholder="Ask something..." />
+    <button onclick="sendMessage()">Send</button>
+  </section>
 
-    <!-- CRYPTO WIDGET -->
-    <section id="crypto-widget" class="info-widget">
-        <h2>Crypto Prices</h2>
-        <ul id="crypto-prices">
-            <li>Loading...</li>
-        </ul>
-    </section>
+  <!-- Weather Section -->
+  <section id="weather">
+    <div class="weather-header">Weather Update</div>
+    <div class="weather-info" id="weather-info">Loading weather for Delhi...</div>
+  </section>
 
-    <!-- AI ASSISTANT CHAT SECTION -->
-    <section id="assistant-section">
-        <div class="assistant-header">
-            <h2>AI Assistant</h2>
-        </div>
-        <div class="chat-window" id="chat-window">
-            <!-- Chat messages will appear here -->
-        </div>
-        <div class="chat-controls">
-            <input type="text" id="user-input" placeholder="Ask me anything...">
-            <button id="send-btn">Send</button>
-        </div>
-    </section>
+  <!-- Crypto Section -->
+  <section id="crypto">
+    <div class="crypto-header">Crypto Prices</div>
+    <div class="crypto-info" id="crypto-info">Loading...</div>
+  </section>
 
-    <!-- FOOTER SECTION -->
-    <footer id="footer">
-        <p>2025 © Powered by Ankit Raj</p>
-        <p>Made with ❤️ by Ankit</p>
-        <p>Contact: ankit.raj@example.com</p>
-        <p>Location: Delhi, India</p>
-    </footer>
+  <!-- Footer -->
+  <footer>
+    <p>Made with code by Ankit Raj | Hack. Build. Repeat. | 2025</p>
+  </footer>
 
-    <!-- External JS for functionality -->
-    <script src="js/main.js"></script>
-    <script src="js/chatbot.js"></script>
-    <script src="js/crypto.js"></script>
-    <script src="js/weather.js"></script>
-
-    <!-- Ensure proper loading of JSON data -->
-    <script>
-        fetch('json/settings.json')
-            .then(response => response.json())
-            .then(data => {
-                console.log('Settings loaded:', data);
-                // Update settings dynamically if needed
-            })
-            .catch(error => console.error('Error loading settings:', error));
-    </script>
+  <!-- JavaScript Files -->
+  <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/weather.js"></script>
+  <script src="js/crypto.js"></script>
 </body>
-
 </html>
