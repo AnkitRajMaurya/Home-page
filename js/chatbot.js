@@ -1,40 +1,42 @@
-// chatbot.js
+document.getElementById("send-btn").addEventListener("click", handleMessage);
+document.getElementById("user-input").addEventListener("keypress", function (e) {
+  if (e.key === "Enter") handleMessage();
+});
 
-function generateBotReply(input) {
-  const text = input.toLowerCase();
+function handleMessage() {
+  const input = document.getElementById("user-input");
+  const message = input.value.trim();
+  if (!message) return;
 
-  const responses = {
-    greetings: {
-      keywords: ["hi", "hello", "hey", "namaste", "good morning", "good afternoon", "good evening"],
-      reply: "Namaste! Kaise madad kar sakta hoon?"
-    },
-    farewell: {
-      keywords: ["bye", "goodbye", "good night", "see you"],
-      reply: "Alvida! Aapka din shubh ho!"
-    },
-    thanks: {
-      keywords: ["thanks", "thank you", "shukriya", "dhanyavaad"],
-      reply: "Aapka swagat hai!"
-    }
-  };
+  appendMessage("You", message, "user");
+  input.value = "";
 
-  for (const category in responses) {
-    const { keywords, reply } = responses[category];
-    if (keywords.some(keyword => text.includes(keyword))) {
-      return displayBotMessage(reply);
-    }
-  }
+  getBotReply(message);
+}
 
-  // Fallback to Google search if no trained response
-  fetch(`https://www.googleapis.com/customsearch/v1?q=${encodeURIComponent(input)}&key=YOUR_API_KEY&cx=YOUR_SEARCH_ENGINE_ID`)
-    .then(res => res.json())
-    .then(data => {
-      if (data.items && data.items.length > 0) {
-        const firstResult = data.items[0];
-        displayBotMessage(`${firstResult.title}: <a href="${firstResult.link}" target="_blank">${firstResult.link}</a>`, true);
-      } else {
-        displayBotMessage("Maaf kijiye, mujhe iska jawab nahi mila.", true);
-      }
-    })
-    .catch(() => displayBotMessage("Maaf kijiye, internet se jawab nahi mil saka.", true));
+function appendMessage(sender, text, className) {
+  const chatWindow = document.getElementById("chat-window");
+  const msg = document.createElement("div");
+  msg.className = `message ${className}`;
+  msg.innerHTML = `<strong>${sender}:</strong> ${text}`;
+  chatWindow.appendChild(msg);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+function getBotReply(userMsg) {
+  const msg = userMsg.toLowerCase();
+
+  let reply = "";
+
+  if (["hi", "hello", "hey"].includes(msg)) reply = "Hello Ankit!";
+  else if (["good morning", "good night", "good evening", "good afternoon"].includes(msg)) reply = `Good ${msg.split(" ")[1]} to you too!`;
+  else if (["bye", "goodbye"].includes(msg)) reply = "Goodbye! Have a great day!";
+  else if (["thanks", "thank you"].includes(msg)) reply = "You're welcome!";
+  else reply = `Sorry, mujhe iska sahi answer nahi aata. <br><em>by Google</em>: ${simulateGoogleAnswer(userMsg)}`;
+
+  appendMessage("Bot", reply, "bot");
+}
+
+function simulateGoogleAnswer(query) {
+  return `Result for <strong>${query}</strong>:<br>This is a simulated response based on your query.`;
 }
