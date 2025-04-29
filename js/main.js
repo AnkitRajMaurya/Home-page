@@ -1,43 +1,49 @@
-// Greeting based on time
-const now = new Date();
-const hour = now.getHours();
-let greetMsg = "Good Day";
+// main.js
 
-if (hour < 12) greetMsg = "Good Morning";
-else if (hour < 17) greetMsg = "Good Afternoon";
-else if (hour < 21) greetMsg = "Good Evening";
-else greetMsg = "Good Night";
-
-document.getElementById('greeting').innerText = greetMsg;
+// DOM Elements
+const searchInput = document.getElementById("search-input");
+const searchButton = document.getElementById("search-button");
+const chatbotInput = document.getElementById("chatbot-input");
+const chatbotMessages = document.getElementById("chatbot-messages");
+const chatbotButton = document.getElementById("chatbot-send");
 
 // Google Search
-document.getElementById('searchBtn').addEventListener('click', () => {
-  const query = document.getElementById('searchInput').value.trim();
+searchButton.addEventListener("click", () => {
+  const query = searchInput.value.trim();
   if (query) {
-    window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+    window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, "_blank");
   }
 });
 
-// AI Assistant Chat
-document.getElementById('sendBtn').addEventListener('click', () => {
-  const input = document.getElementById('userInput').value.trim();
-  if (!input) return;
-  
-  const chatMessages = document.getElementById('chatMessages');
-  chatMessages.innerHTML += `<div class="user">You: ${input}</div>`;
-  
-  let botReply = "";
-  
-  if (input.toLowerCase().includes('hello')) {
-    botReply = "Bot: Hello! How can I assist you today?";
-  } else if (input.toLowerCase().includes('weather')) {
-    botReply = "Bot: Weather info is above!";
-  } else if (input.toLowerCase().includes('crypto')) {
-    botReply = "Bot: Crypto prices updated above!";
-  } else {
-    botReply = "Bot: Sorry, mujhe iska sahi answer nahi aata, Google search use karo!";
-  }
-  
-  chatMessages.innerHTML += `<div class="bot">${botReply}</div>`;
-  document.getElementById('userInput').value = "";
+// Handle Enter Key
+searchInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") searchButton.click();
 });
+chatbotInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") chatbotButton.click();
+});
+
+// Chatbot Send
+chatbotButton.addEventListener("click", () => {
+  const input = chatbotInput.value.trim();
+  if (!input) return;
+  displayUserMessage(input);
+  generateBotReply(input);
+  chatbotInput.value = "";
+});
+
+function displayUserMessage(msg) {
+  const div = document.createElement("div");
+  div.className = "user-message";
+  div.textContent = `You: ${msg}`;
+  chatbotMessages.appendChild(div);
+  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+}
+
+function displayBotMessage(msg, isGoogle = false) {
+  const div = document.createElement("div");
+  div.className = "bot-message";
+  div.innerHTML = `Bot: ${msg}${isGoogle ? ' <span class="by-google">(by Google)</span>' : ''}`;
+  chatbotMessages.appendChild(div);
+  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+}
