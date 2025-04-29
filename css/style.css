@@ -1,248 +1,284 @@
-/* === GLOBAL SETTINGS === */
+/* General Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #121212;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Body Styling */
 body {
-  background-color: #121212; /* Fallback dark background */
-  font-family: 'Share Tech Mono', monospace;
-  line-height: 1.6;
-  min-height: 100vh;
-  padding: 0;
-  margin: 0;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-x: hidden;
-}
-
-/* === SETTING THE BACKGROUND IMAGE === */
-body {
-  background-image: url('images/background.jpg'); /* Your background image */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* === HEADER SECTION === */
-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.logo-circle {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  border: 2px solid #00ff9f;
-  box-shadow: 0 0 10px #00ff9f;
-  margin-bottom: 10px;
-}
-
-.title {
-  font-size: 2rem;
-  color: #00ffcc;
-}
-
-.greeting-text {
-  font-size: 1.3rem;
-  margin-top: 5px;
-  color: #00ffaa;
-}
-
-/* === SEARCH SECTION === */
-.search-section {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 25px auto;
-  flex-wrap: wrap;
-}
-
-#search-box {
-  padding: 12px 20px;
-  width: 60%;
-  font-size: 1rem;
-  background-color: #1a1a1a;
-  color: #00ff9f;
-  border: 2px solid #00ff9f;
-  border-radius: 8px;
-}
-
-#search-button {
-  padding: 12px 20px;
-  background-color: #00ff9f;
-  color: #0f0f0f;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-#search-button:hover {
-  background-color: #00cc88;
-}
-
-/* === INFO WIDGETS (Weather + Crypto) === */
-.info-widgets {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin: 40px auto;
-}
-
-.widget {
-  flex: 1 1 300px;
-  padding: 20px;
-  margin: 10px;
-  background-color: rgba(0, 0, 0, 0.7); /* semi-transparent background */
-  border: 2px solid #00ff9f;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #00ff9f;
-}
-
-.widget h2 {
-  color: #00ffcc;
-  margin-bottom: 10px;
-}
-
-#crypto-prices li {
-  margin: 5px 0;
-  list-style: none;
-}
-
-/* === AI ASSISTANT CHAT === */
-#assistant-section {
-  margin: 40px auto;
-  max-width: 800px;
-}
-
-.assistant-header {
-  font-size: 1.6rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #00ffff;
-}
-
-.chat-window {
-  background-color: rgba(0, 0, 0, 0.8);
-  border: 1px solid #00ff9f;
-  border-radius: 10px;
-  padding: 15px;
-  height: 300px;
-  overflow-y: auto;
-  margin-bottom: 10px;
-}
-
-.chat-controls {
-  display: flex;
-  gap: 10px;
-}
-
-#user-input {
-  flex: 1;
-  padding: 10px;
-  background-color: #0f0f0f;
-  color: #00ff9f;
-  border: 1px solid #00ff9f;
-  border-radius: 6px;
-}
-
-#send-btn {
-  padding: 10px 15px;
-  background-color: #00ff9f;
-  border: none;
-  color: #0f0f0f;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-#send-btn:hover {
-  background-color: #00cc88;
-}
-
-/* === CHAT MESSAGE STYLES === */
-.user-message {
-  color: #fff;
-  margin: 5px 0;
-  text-align: right;
-}
-
-.bot-message {
-  color: #00e6e6;
-  margin: 5px 0;
-  text-align: left;
-}
-
-/* === SHORTCUT LINKS === */
-#shortcuts {
-  margin: 40px auto;
-  text-align: center;
-}
-
-.quick-links {
-  list-style: none;
-  padding: 0;
-}
-
-.quick-links li {
-  display: inline-block;
-  margin: 10px;
-}
-
-.quick-links a {
-  text-decoration: none;
-  color: #00ffaa;
-  font-weight: bold;
-}
-
-.quick-links a:hover {
-  text-decoration: underline;
-}
-
-/* === FOOTER === */
-footer {
-  margin-top: 60px;
-  padding-top: 20px;
-  border-top: 1px solid #00ff9f;
-  text-align: center;
-  color: #00ffaa;
-}
-
-/* === RESPONSIVE LAYOUT === */
-@media (max-width: 768px) {
-  .info-widgets {
+    display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-  }
-
-  .search-section {
-    flex-direction: column;
-  }
-
-  #search-box {
-    width: 90%;
-  }
-
-  .chat-window {
-    height: 250px;
-  }
+    padding: 20px;
+    background: linear-gradient(135deg, #0d1b2a, #1f2b3a);
 }
 
-/* === ANIMATIONS === */
-@keyframes hackerGlow {
-  0% {
-    box-shadow: 0 0 5px #00ff9f;
-  }
-  100% {
-    box-shadow: 0 0 20px #00ff9f;
-  }
+/* Header */
+header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-.logo-circle:hover {
-  animation: hackerGlow 0.8s infinite alternate;
+header h1 {
+    font-size: 3em;
+    color: #00FF00;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Logo styling */
+header .logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 10px auto;
+    background-color: #1e8bff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .logo img {
+    width: 60%;
+}
+
+/* Greeting Section */
+.greeting {
+    font-size: 2.2em;
+    margin-top: 20px;
+    text-align: center;
+    color: #34c759;
+}
+
+/* Chatbot */
+#chatbot {
+    width: 100%;
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #23272a;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+#chatbot h2 {
+    font-size: 1.8em;
+    color: #f39c12;
+    margin-bottom: 20px;
+}
+
+.chat-message {
+    font-size: 1.2em;
+    color: #fff;
+    background: #444;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: fit-content;
+    display: inline-block;
+}
+
+.chat-message.bot {
+    background: #00aaff;
+    color: #fff;
+    float: left;
+}
+
+.chat-message.user {
+    background: #33cc33;
+    color: #fff;
+    float: right;
+}
+
+#chatbot input[type="text"] {
+    width: calc(100% - 100px);
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid #4caf50;
+    border-radius: 5px;
+    background-color: #2f3136;
+    color: #fff;
+    font-size: 1.1em;
+}
+
+#chatbot button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#chatbot button:hover {
+    background-color: #45a049;
+}
+
+.chat-container {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Search Bar */
+.search-bar {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-bar input[type="text"] {
+    width: 80%;
+    padding: 12px;
+    border: 1px solid #4caf50;
+    border-radius: 5px;
+    background-color: #2f3136;
+    color: #fff;
+    font-size: 1.1em;
+}
+
+.search-bar button {
+    padding: 12px 20px;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #45a049;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    background-color: #121212;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+}
+
+footer p {
+    font-size: 1.2em;
+    color: #fff;
+    margin: 0;
+}
+
+/* Weather Section */
+#weather {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #444;
+    border-radius: 10px;
+}
+
+.weather-header {
+    font-size: 2em;
+    color: #ff9800;
+    text-align: center;
+}
+
+.weather-info {
+    font-size: 1.5em;
+    color: #fff;
+    text-align: center;
+}
+
+.weather-info span {
+    color: #ff5722;
+}
+
+/* Crypto Section */
+#crypto {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #444;
+    border-radius: 10px;
+}
+
+.crypto-header {
+    font-size: 2em;
+    color: #ff9800;
+    text-align: center;
+}
+
+.crypto-info {
+    font-size: 1.5em;
+    color: #fff;
+    text-align: center;
+}
+
+.crypto-info span {
+    color: #ff5722;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .search-bar input[type="text"], .search-bar button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #chatbot {
+        width: 100%;
+    }
+
+    .chat-message {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    #chatbot {
+        width: 100%;
+    }
+
+    .search-bar input[type="text"], .search-bar button {
+        width: 100%;
+    }
 }
