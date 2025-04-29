@@ -1,0 +1,16 @@
+{
+  "username": "Ankit Raj",
+  "theme": "hacker",
+  "cryptoUpdateInterval": 30000,
+  "enableNotifications": true,
+  "autoDetectLocation": true,
+  "features": [
+    "search",
+    "typingAnimation",
+    "cryptoPrices",
+    "weatherUpdate",
+    "chatbot",
+    "focusMode"
+  ],
+  "logo": "images/logo.png"
+}
