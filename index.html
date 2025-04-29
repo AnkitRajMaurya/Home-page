@@ -1,59 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Page | Ankit Raj</title>
-    <link rel="stylesheet" href="css/style.css">
+  <!-- SEO & Meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hyper-customized homepage by Ankit Raj - featuring AI Assistant, Crypto, Weather, and more." />
+  <meta name="author" content="Ankit Raj" />
+  <title>Google Page | Ankit Raj</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="icon" href="images/logo.png" type="image/png">
 </head>
-<body>
-
-<header>
-    <img src="images/logo.png" alt="Logo" class="logo">
-    <div class="headerText">
-        <h1 id="greeting"></h1>
-        <h2 id="username">Ankit Raj</h2>
+<body class="theme-hacker">
+  <!-- HEADER SECTION -->
+  <header>
+    <div class="branding">
+      <img src="images/logo.png" alt="Ankit Raj Logo" class="logo-circle">
+      <h1 class="title">Welcome to Ankit's Dashboard</h1>
+      <p id="greeting" class="greeting-text">Good Day</p>
     </div>
-</header>
+  </header>
 
-<section class="search-section">
-    <input type="text" id="searchInput" placeholder="Search Google...">
-    <button id="searchBtn">Search</button>
-</section>
+  <!-- MAIN SECTION -->
+  <main>
+    <!-- GOOGLE SEARCH SECTION -->
+    <section id="search-engine" class="search-section">
+      <input type="text" id="search-box" placeholder="Search Google..." />
+      <button id="search-button">Search</button>
+    </section>
 
-<section class="widgets">
-    <div class="widget" id="cryptoWidget">
-        <h3>Crypto Prices</h3>
-        <p id="cryptoPrices">Loading...</p>
-    </div>
+    <!-- WEATHER & CRYPTO SECTION -->
+    <section class="info-widgets">
+      <div class="widget" id="weather-widget">
+        <h2>Weather Update</h2>
+        <p><span id="weather-temp">--</span> | <span id="weather-location">Delhi, IN</span></p>
+      </div>
+      <div class="widget" id="crypto-widget">
+        <h2>Crypto Prices</h2>
+        <ul id="crypto-prices">
+          <li>Bitcoin: ₹--</li>
+          <li>Ethereum: ₹--</li>
+        </ul>
+      </div>
+    </section>
 
-   <div id="weather">
-  <span id="weather-temp">--</span>
-  <span id="weather-location">Weather Loading...</span>
-</div>
+    <!-- AI ASSISTANT CHATBOT SECTION -->
+    <section id="assistant-section">
+      <div class="assistant-header">🤖 AI Assistant</div>
+      <div id="chat-window" class="chat-window"></div>
+      <div class="chat-controls">
+        <input type="text" id="user-input" placeholder="Talk to me..." />
+        <button id="send-btn">Send</button>
+      </div>
+    </section>
 
+    <!-- QUICK LINKS OR SHORTCUTS -->
+    <section id="shortcuts">
+      <h2>Quick Links</h2>
+      <ul class="quick-links">
+        <li><a href="https://github.com/AnkitRajMaurya" target="_blank">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/Ankit5242raj" target="_blank">LinkedIn</a></li>
+        <li><a href="https://ankitrajmaurya.github.io/Portfolio-/" target="_blank">Portfolio</a></li>
+      </ul>
+    </section>
+  </main>
 
-</section>
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 | Built with 💻 by Ankit Raj | Inspired by real programmers' setups</p>
+  </footer>
 
-<!-- Moved Chatbot Section Below Google Search -->
-<section class="chatbot-section">
-    <h2 class="chatbot-heading">AI Assistant</h2>
-    <div id="chatContainer">
-        <div id="chatMessages"></div>
-    </div>
-    <div class="chatInputArea">
-        <input type="text" id="userInput" placeholder="Type your message...">
-        <button id="sendBtn">Send</button>
-    </div>
-</section>
-
-<footer>
-    <p>Crafted with Code | Hyper Coder | 2025</p>
-</footer>
-
-<script src="js/main.js"></script>
-<script src="js/weather.js"></script>
-<script src="js/crypto.js"></script>
-
+  <!-- SCRIPTS -->
+  <script src="js/greeting.js"></script>
+  <script src="js/weather.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/crypto.js"></script>
 </body>
 </html>
