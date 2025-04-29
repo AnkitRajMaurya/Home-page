@@ -1,35 +1,22 @@
-// weather.js
+const weatherApiKey = "YOUR_API_KEY"; // Replace with your actual API key
+const city = "Delhi";
+const countryCode = "IN";
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${weatherApiKey}&units=metric`;
 
-const weatherTemp = document.getElementById("weather-temp");
-const weatherLocation = document.getElementById("weather-location");
-
-// Fixed coordinates for Delhi, India
-const delhiCoords = {
-  lat: 28.6139,
-  lon: 77.2090
-};
-
-// OpenWeatherMap API key
-const API_KEY = "YOUR_OPENWEATHERMAP_API_KEY"; // Replace this with your real API key
-
-function fetchWeatherForDelhi() {
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${delhiCoords.lat}&lon=${delhiCoords.lon}&appid=${API_KEY}&units=metric`;
-
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-      const temp = Math.round(data.main.temp);
-      const city = data.name || "Delhi";
-
-      weatherTemp.textContent = `${temp}°C`;
-      weatherLocation.textContent = city;
+function fetchWeather() {
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      if (data.main) {
+        document.getElementById("weather-temp").textContent = `${Math.round(data.main.temp)}°C`;
+        document.getElementById("weather-location").textContent = `${data.name}, ${data.sys.country}`;
+      } else {
+        document.getElementById("weather-location").textContent = "Weather unavailable";
+      }
     })
-    .catch((err) => {
-      console.error("Weather fetch error:", err);
-      weatherTemp.textContent = "--";
-      weatherLocation.textContent = "Weather Unavailable";
+    .catch(() => {
+      document.getElementById("weather-location").textContent = "Weather unavailable";
     });
 }
 
-// Initialize on load
-window.addEventListener("DOMContentLoaded", fetchWeatherForDelhi);
+window.addEventListener("DOMContentLoaded", fetchWeather);
