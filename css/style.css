@@ -1,213 +1,235 @@
-/* General Reset */
+/* === GLOBAL SETTINGS === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Roboto Mono', monospace;
+body.theme-hacker {
   background-color: #0f0f0f;
-  color: #00ff00;
+  color: #00ff9f;
+  font-family: 'Share Tech Mono', monospace;
+  line-height: 1.6;
   min-height: 100vh;
-  overflow-x: hidden;
-  margin: 0;
-}
-
-header {
-  display: flex;
-  align-items: center;
   padding: 20px;
-  background: #111;
-  border-bottom: 2px solid #00ff00;
 }
 
-.logo {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-}
-
-.headerText {
-  margin-left: 20px;
-}
-
-#greeting {
-  font-size: 2rem;
-  color: #00f9ff;
-}
-
-#username {
-  font-size: 1.5rem;
-  color: #ff00ff;
-}
-
-/* Search Section */
-.search-section {
-  margin: 30px auto;
+/* === HEADER SECTION === */
+header {
   text-align: center;
+  margin-bottom: 30px;
 }
 
-#searchInput {
-  padding: 10px;
-  width: 300px;
-  border-radius: 20px;
-  border: 2px solid #00ff00;
-  background: transparent;
-  color: #00ff00;
+.logo-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid #00ff9f;
+  box-shadow: 0 0 10px #00ff9f;
+  margin-bottom: 10px;
 }
 
-#searchBtn {
-  margin-left: 10px;
-  padding: 10px 20px;
-  border-radius: 20px;
-  background: #00ff00;
-  border: none;
-  color: #000;
-  cursor: pointer;
+.title {
+  font-size: 2rem;
+  color: #00ffcc;
 }
 
-#searchBtn:hover {
-  background: #00cc00;
+.greeting-text {
+  font-size: 1.3rem;
+  margin-top: 5px;
+  color: #00ffaa;
 }
 
-/* Widgets Section */
-.widgets {
+/* === SEARCH SECTION === */
+.search-section {
   display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 25px auto;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 40px;
+}
+
+#search-box {
+  padding: 12px 20px;
+  width: 60%;
+  font-size: 1rem;
+  background-color: #1a1a1a;
+  color: #00ff9f;
+  border: 2px solid #00ff9f;
+  border-radius: 8px;
+}
+
+#search-button {
+  padding: 12px 20px;
+  background-color: #00ff9f;
+  color: #0f0f0f;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+#search-button:hover {
+  background-color: #00cc88;
+}
+
+/* === INFO WIDGETS (Weather + Crypto) === */
+.info-widgets {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 40px auto;
 }
 
 .widget {
-  background: #111;
+  flex: 1 1 300px;
   padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 0 10px #00ff00;
-  min-width: 250px;
-  margin-bottom: 20px;
+  margin: 10px;
+  background-color: #141414;
+  border: 2px solid #00ff9f;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #00ff9f;
 }
 
-.widget h3 {
-  color: #ff6600;
+.widget h2 {
+  color: #00ffcc;
   margin-bottom: 10px;
 }
 
-.widget p {
-  font-size: 1.2rem;
-  color: #00ff00;
+#crypto-prices li {
+  margin: 5px 0;
+  list-style: none;
 }
 
-/* Chatbot Section */
-.chatbot-section {
-  margin: 20px;
-  text-align: center;
-  padding: 20px;
+/* === AI ASSISTANT CHAT === */
+#assistant-section {
+  margin: 40px auto;
+  max-width: 800px;
 }
 
-.chatbot-heading {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #00ccff;
+.assistant-header {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #00ffff;
 }
 
-#chatContainer {
-  height: 400px;
-  background: #222;
-  border-radius: 15px;
+.chat-window {
+  background-color: #1d1d1d;
+  border: 1px solid #00ff9f;
+  border-radius: 10px;
+  padding: 15px;
+  height: 300px;
   overflow-y: auto;
-  padding: 10px;
   margin-bottom: 10px;
-  border: 2px solid #00ff00;
 }
 
-.chatInputArea {
+.chat-controls {
   display: flex;
-  justify-content: center;
+  gap: 10px;
 }
 
-#userInput {
+#user-input {
   flex: 1;
   padding: 10px;
-  border-radius: 20px;
-  border: 2px solid #00ff00;
-  background: transparent;
-  color: #00ff00;
-  width: 60%;
+  background-color: #0f0f0f;
+  color: #00ff9f;
+  border: 1px solid #00ff9f;
+  border-radius: 6px;
 }
 
-#sendBtn {
-  margin-left: 10px;
-  padding: 10px 20px;
-  border-radius: 20px;
-  background: #00ff00;
+#send-btn {
+  padding: 10px 15px;
+  background-color: #00ff9f;
   border: none;
-  color: #000;
+  color: #0f0f0f;
+  border-radius: 6px;
   cursor: pointer;
 }
 
-#sendBtn:hover {
-  background: #00cc00;
+#send-btn:hover {
+  background-color: #00cc88;
 }
 
-.user {
+/* === CHAT MESSAGE STYLES === */
+.user-message {
+  color: #fff;
+  margin: 5px 0;
   text-align: right;
-  color: #00ff00;
-  margin: 5px;
 }
 
-.bot {
+.bot-message {
+  color: #00e6e6;
+  margin: 5px 0;
   text-align: left;
-  color: #ff6600;
-  margin: 5px;
 }
 
-/* Footer */
-footer {
+/* === SHORTCUT LINKS === */
+#shortcuts {
+  margin: 40px auto;
   text-align: center;
-  padding: 10px;
-  background: #111;
-  color: #555;
-  font-size: 1.2rem;
-  margin-top: 20px;
 }
 
-footer p {
-  margin-top: 10px;
+.quick-links {
+  list-style: none;
+  padding: 0;
 }
 
-/* Mobile Responsiveness */
+.quick-links li {
+  display: inline-block;
+  margin: 10px;
+}
+
+.quick-links a {
+  text-decoration: none;
+  color: #00ffaa;
+  font-weight: bold;
+}
+
+.quick-links a:hover {
+  text-decoration: underline;
+}
+
+/* === FOOTER === */
+footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid #00ff9f;
+  text-align: center;
+  color: #00ffaa;
+}
+
+/* === RESPONSIVE LAYOUT === */
 @media (max-width: 768px) {
-  header {
+  .info-widgets {
     flex-direction: column;
-    text-align: center;
+    align-items: center;
   }
-  
-  .widgets {
-    flex-direction: column;
-    margin: 20px;
-  }
-  
-  #searchInput {
-    width: 80%;
-    margin: 10px 0;
-  }
-  
-  #searchBtn {
-    width: 80%;
-    padding: 10px;
-  }
-  
-  .chatInputArea {
+
+  .search-section {
     flex-direction: column;
   }
-  
-  #userInput {
-    width: 80%;
+
+  #search-box {
+    width: 90%;
   }
-  
-  #sendBtn {
-    width: 80%;
-    margin-top: 10px;
+
+  .chat-window {
+    height: 250px;
   }
+}
+
+/* === ANIMATIONS === */
+@keyframes hackerGlow {
+  0% {
+    box-shadow: 0 0 5px #00ff9f;
+  }
+  100% {
+    box-shadow: 0 0 20px #00ff9f;
+  }
+}
+
+.logo-circle:hover {
+  animation: hackerGlow 0.8s infinite alternate;
 }
