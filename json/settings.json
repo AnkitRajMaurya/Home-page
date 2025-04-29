@@ -1,16 +1,27 @@
 {
-  "username": "Ankit Raj",
-  "theme": "hacker",
-  "logo": "images/logo.png",
-  "cryptoUpdateInterval": 30000,
-  "enableNotifications": true,
-  "autoDetectLocation": false,
-  "features": [
-    "search",
-    "typingAnimation",
-    "cryptoPrices",
-    "weatherUpdate",
-    "chatbot",
-    "focusMode"
-  ]
+    "theme": "hacker", 
+    "wallpaper": "background.jpg", 
+    "cryptoUpdateInterval": 30000, 
+    "enableNotifications": true, 
+    "autoDetectLocation": true, 
+    "features": [
+        "search",
+        "typingAnimation",
+        "cryptoPrices",
+        "weatherUpdate",
+        "chatbot",
+        "focusMode"
+    ],
+    "user": {
+        "username": "Ankit Raj",
+        "theme": "dark",
+        "logo": "images/logo.png",
+        "location": "Delhi, India"
+    },
+    "greeting": {
+        "morning": "Good Morning, Ankit Raj!",
+        "afternoon": "Good Afternoon, Ankit Raj!",
+        "evening": "Good Evening, Ankit Raj!",
+        "night": "Good Night, Ankit Raj!"
+    }
 }
