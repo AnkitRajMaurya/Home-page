@@ -5,13 +5,26 @@
   box-sizing: border-box;
 }
 
-body.theme-hacker {
-  background-color: #0f0f0f;
-  color: #00ff9f;
+body {
+  background-color: #121212; /* Fallback dark background */
   font-family: 'Share Tech Mono', monospace;
   line-height: 1.6;
   min-height: 100vh;
-  padding: 20px;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* === SETTING THE BACKGROUND IMAGE === */
+body {
+  background-image: url('images/background.jpg'); /* Your background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* === HEADER SECTION === */
@@ -86,7 +99,7 @@ header {
   flex: 1 1 300px;
   padding: 20px;
   margin: 10px;
-  background-color: #141414;
+  background-color: rgba(0, 0, 0, 0.7); /* semi-transparent background */
   border: 2px solid #00ff9f;
   border-radius: 12px;
   box-shadow: 0 0 10px #00ff9f;
@@ -116,7 +129,7 @@ header {
 }
 
 .chat-window {
-  background-color: #1d1d1d;
+  background-color: rgba(0, 0, 0, 0.8);
   border: 1px solid #00ff9f;
   border-radius: 10px;
   padding: 15px;
